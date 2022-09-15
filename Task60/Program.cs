@@ -34,36 +34,40 @@ void PrintArray(int[,,] matrix)
 int[,,] table = new int[2,2,2];
 FillArray(table);
 PrintArray(table);
-int[] array = new int[table.GetLength(0)*table.GetLength(1)*table.GetLength(2)];
-void OneDimensionalArray(int[]array)//копирую все в 1D матрицу нужного размера
+// int[] array = new int[table.GetLength(0)*table.GetLength(1)*table.GetLength(2)];
+// void OneDimensionalArray(int[]array)//копирую все в 1D матрицу нужного размера
+//     {
+//         int s =0;
+//             for (int i = 0; i < table.GetLength(0); i++)
+//                 {
+//                     for (int j = 0; j < table.GetLength(1); j++)
+//                         {
+//                             for (int k = 0; k < table.GetLength(2); k++)
+//                                 {
+//                                     array[s]=table[i,j,k] ;
+//                                     s++;
+//                                 } 
+//                         }    
+//                 }   
+// for (int i = 0; i < array.Length; i++)
+//     {
+//         Console.Write(array[i]+ " ");
+//     }
+//     Console.WriteLine();  
+// }    
+void SortOneDimensionalArray(int[,,]array)//если нахожу повторяющееся число, меняю его на (максимальное+1), если еще одно--снова макс+1
     {
-        int s =0;
-            for (int i = 0; i < table.GetLength(0); i++)
+        int count =0;
+        int maxNumber= array[0,0,0];
+           for (int i = 0; i < table.GetLength(0); i++)
                 {
                     for (int j = 0; j < table.GetLength(1); j++)
                         {
                             for (int k = 0; k < table.GetLength(2); k++)
                                 {
-                                    array[s]=table[i,j,k] ;
-                                    s++;
-                                } 
-                        }    
-                }   
-for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write(array[i]+ " ");
-    }
-    Console.WriteLine();  
-}    
-void SortOneDimensionalArray(int[]array)//если нахожу повторяющееся число, меняю его на (максимальное+1), если еще одно--снова макс+1
-    {
-        int count =0;
-        int maxNumber= array[0];
-            for (int i = 0; i < array.Length; i++)
-                {   
-                    if(array[i]> maxNumber)
+                    if(array[i,j,k]> maxNumber)
                         {
-                            maxNumber=array[i];
+                            maxNumber=array[i,j,k];
                         }
                 }
 for (int i = 0; i < array.Length; i++)
